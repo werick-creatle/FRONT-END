@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms'; 
 import { Router, RouterLink } from '@angular/router'; 
 import { Trash2, LucideAngularModule } from 'lucide-angular'; 
-// Importa as interfaces corretas do serviço
 import { CarrinhoService, CarrinhoViewDTO, CarrinhoItem } from '../../services/carrinho.service'; 
 import { take } from 'rxjs'; 
 

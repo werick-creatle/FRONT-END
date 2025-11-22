@@ -87,7 +87,7 @@ export class CatalogoComponent implements OnInit {
       },
       error: (err: any) => {
         console.error('Erro ao adicionar:', err);
-        alert('Erro ao adicionar. Verifique o console.');
+        alert('Erro ao adicionar. faça o login.');
       }
     });
   }
