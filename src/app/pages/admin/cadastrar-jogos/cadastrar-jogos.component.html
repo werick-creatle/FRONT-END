@@ -1,0 +1,61 @@
+<div class="form-page-container">
+  <h2>🎮 Cadastrar Novo Jogo</h2>
+  
+  <form class="game-form">
+    
+    <div class="form-group large-input">
+      <label for="nome">Nome do Jogo:</label>
+      <input type="text" id="nome" placeholder="Ex: God of War Ragnarok" required>
+    </div>
+    
+    <div class="form-row three-cols">
+      <div class="form-group">
+        <label for="plataforma">Plataforma:</label>
+        <select id="plataforma" required>
+          <option value="" disabled selected>Selecione a plataforma</option>
+          <option value="ps">PlayStation</option>
+          <option value="xbox">Xbox</option>
+          <option value="pc">PC</option>
+          <option value="nintendo">Nintendo</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="genero">Gênero:</label>
+        <input type="text" id="genero" placeholder="Ex: RPG, Ação" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="data-lancamento">Data de Lançamento:</label>
+        <input type="date" id="data-lancamento" required>
+      </div>
+    </div>
+    
+    <div class="form-row three-cols">
+      <div class="form-group">
+        <label for="preco">Preço (R$):</label>
+        <input type="number" id="preco" placeholder="Ex: 199.90" step="0.01" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="quantidade-estoque">Estoque Inicial:</label>
+        <input type="number" id="quantidade-estoque" placeholder="Ex: 50" required>
+      </div>
+
+      <div class="form-group">
+        <label for="url-imagem">URL da Imagem:</label>
+        <input type="url" id="url-imagem" placeholder="https://exemplo.com/capa.jpg" required>
+      </div>
+    </div>
+    
+    <div class="form-group large-input">
+      <label for="descricao">Descrição:</label>
+      <textarea id="descricao" rows="4" placeholder="Breve descrição do jogo..." required></textarea>
+    </div>
+    
+    <div class="form-action">
+      <button type="submit" class="btn btn-primary">Cadastrar Jogo</button>
+    </div>
+    
+  </form>
+</div>

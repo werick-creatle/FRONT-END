@@ -1,0 +1,52 @@
+<div class="remove-games-content-wrapper">
+  <h2 class="page-title">REMOVER JOGOS</h2>
+
+  <!-- 🔍 Campo de busca -->
+  <div class="search-box">
+    <input type="text" placeholder="Buscar jogo pelo nome...">
+    <button class="btn-primary-search">Buscar</button>
+  </div>
+
+  <!-- 📋 Tabela de jogos -->
+  <table class="game-table">
+    <thead>
+      <tr>
+        <th>Imagem</th>
+        <th>Nome</th>
+        <th>Categoria</th>
+        <th>Preço</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>
+          <img src="https://cdn1.epicgames.com/offer/3ddd6a590da64e3686042d108968a6b2/EGS_GodofWar_SantaMonicaStudio_S2_1200x1600-fbdf3cbc2980749091d52751ffabb7b7_1200x1600-fbdf3cbc2980749091d52751ffabb7b7" alt="Capa GoW">
+        </td>
+        <td>God of War Ragnarök</td>
+        <td>PlayStation</td>
+        <td>R$ 249,90</td>
+        <td>
+          <button class="btn-remove action-icon">
+            <lucide-angular [img]="lixeiraIcone" [size]="18"></lucide-angular>
+          </button>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <img src="https://upload.wikimedia.org/wikipedia/pt/f/f7/Cyberpunk_2077_capa.png" alt="Capa Cyberpunk">
+        </td>
+        <td>Cyberpunk 2077</td>
+        <td>Xbox</td>
+        <td>R$ 399,90</td>
+        <td>
+          <button class="btn-remove action-icon">
+            <lucide-angular [img]="lixeiraIcone" [size]="18"></lucide-angular>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

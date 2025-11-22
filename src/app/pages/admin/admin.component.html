@@ -1,0 +1,25 @@
+<div class="admin-container">
+  <aside class="admin-sidebar">
+    <div class="sidebar-header">
+      <h2>🎮 Admin Panel</h2>
+    </div>
+    <nav class="admin-nav">
+      <a routerLink="dashboard" routerLinkActive="active" class="nav-item">
+        <i class="fas fa-chart-line"></i> Dashboard
+      </a>
+      <a routerLink="cadastrar-jogos" routerLinkActive="active" class="nav-item">
+        <i class="fas fa-gamepad"></i> Cadastrar Jogos
+      </a>
+      <a routerLink="remover-jogos" routerLinkActive="active" class="nav-item">
+        <i class="fas fa-trash-alt"></i> Remover Jogos
+      </a>
+      <a routerLink="/lancamentos" routerLinkActive="active" class="nav-item">
+        <i class="fas fa-trash-alt"></i> Voltar para o site
+      </a>
+      </nav>
+  </aside>
+
+  <main class="admin-main-content">
+    <router-outlet></router-outlet>
+  </main>
+</div>
