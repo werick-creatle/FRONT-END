@@ -12,6 +12,8 @@ import { DashboardComponent } from './pages/admin/dashboard/dashboard.component'
 import { CadastrarJogosComponent } from './pages/admin/cadastrar-jogos/cadastrar-jogos.component';
 import { RemoverJogosComponent } from './pages/admin/remover-jogos/remover-jogos.component';
 
+// --- 1. IMPORTAÇÃO NOVA AQUI ---
+import { PedidoSucessoComponent } from './components/pedido-sucesso/pedido-sucesso.component';
 
 export const routes: Routes = [
     {
@@ -38,6 +40,14 @@ export const routes: Routes = [
         path: 'carrinho',
         component: CarrinhoComponent,
     },
+    
+    // --- 2. ROTA NOVA AQUI ---
+    // O ":id" é fundamental para aceitar o número do pedido (ex: /pedido-sucesso/13)
+    {
+        path: 'pedido-sucesso/:id',
+        component: PedidoSucessoComponent,
+    },
+
     {
         path: 'cadastro',
         component: CadastroComponent,
@@ -51,7 +61,7 @@ export const routes: Routes = [
     {
         path: 'admin',
         component: AdminComponent,
-        children: [ // <-- Rotas filhas do AdminComponent
+        children: [ 
             {
                 path: 'dashboard',
                 component: DashboardComponent,

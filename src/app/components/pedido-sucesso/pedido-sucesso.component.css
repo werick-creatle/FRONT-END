@@ -1,0 +1,163 @@
+/* Container principal que centraliza tudo na tela */
+.container-recibo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 85vh; /* Ocupa quase toda a altura da tela */
+  background-color: #f4f6f8; /* Fundo cinza bem clarinho */
+  padding: 20px;
+}
+
+/* O cartão branco (o recibo em si) */
+.card-recibo {
+  background: white;
+  width: 100%;
+  max-width: 500px; /* Não deixa ficar muito largo no PC */
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Sombra suave */
+  text-align: center;
+  border-top: 6px solid #2ecc71; /* Faixa verde no topo indicando sucesso */
+  position: relative;
+}
+
+/* O ícone de Visto (Check) */
+.icone-sucesso {
+  width: 70px;
+  height: 70px;
+  background-color: #eafaf1; /* Verde bem claro no fundo */
+  color: #2ecc71; /* Verde forte no ícone */
+  border-radius: 50%;
+  font-size: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px; /* Centraliza horizontalmente */
+}
+
+/* Títulos */
+.recibo-header h2 {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 1.8rem;
+}
+
+.recibo-header p {
+  color: #7f8c8d;
+  margin-top: 5px;
+}
+
+/* Caixa cinza com os detalhes (ID e Data) */
+.recibo-detalhes {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 15px 20px;
+  margin: 25px 0;
+  border: 1px solid #e9ecef;
+}
+
+.linha-info {
+  display: flex;
+  justify-content: space-between; /* Joga texto pra esquerda e valor pra direita */
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.linha-info span:last-child {
+  font-weight: 600;
+  color: #333;
+}
+
+.linha-info:last-child {
+  margin-bottom: 0;
+}
+
+/* Tabela de Produtos */
+.tabela-itens {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 0.9rem;
+}
+
+.tabela-itens th {
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  color: #aaa;
+  font-weight: 700;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+}
+
+.tabela-itens td {
+  padding: 12px 0;
+  border-bottom: 1px solid #f5f5f5;
+  color: #444;
+}
+
+/* Alinhamentos da tabela */
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+/* Total da Conta */
+.recibo-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 25px;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #2c3e50;
+}
+
+.valor-total {
+  color: #27ae60; /* Verde Dinheiro */
+}
+
+/* Botão de Voltar */
+.btn-voltar {
+  margin-top: 30px;
+  background-color: #2c3e50;
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 8px;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-voltar:hover {
+  background-color: #34495e;
+  transform: translateY(-2px); /* Efeito de subir levemente */
+}
+
+/* Animação de entrada (Fade In de baixo para cima) */
+.animate-fade-in {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Loading simples */
+.loading {
+  font-size: 1.2rem;
+  color: #666;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}

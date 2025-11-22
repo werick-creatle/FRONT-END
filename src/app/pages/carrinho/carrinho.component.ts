@@ -3,8 +3,14 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms'; 
 import { Router, RouterLink } from '@angular/router'; 
 import { Trash2, LucideAngularModule } from 'lucide-angular'; 
-import { CarrinhoService, CarrinhoViewDTO, CarrinhoItem } from '../../services/carrinho.service'; 
 import { take } from 'rxjs'; 
+
+// Seus Services e Models
+import { CarrinhoService, CarrinhoViewDTO, CarrinhoItem } from '../../services/carrinho.service'; 
+
+// --- NOVO: Importando o PedidoService e o Model do Pedido ---
+import { PedidoService } from '../../services/pedido.service';
+import { PedidoViewDTO } from '../../models/pedido.model';
 
 @Component({
   selector: 'app-carrinho',
@@ -23,18 +29,19 @@ export class CarrinhoComponent implements OnInit {
   carrinhoItems: CarrinhoItem[] = [];
   total: number = 0;
   
-  // Ícone de lixeira
   readonly lixeiraIcone = Trash2; 
 
   // Injeção de dependências
   private carrinhoService = inject(CarrinhoService);
   private router = inject(Router);
+  
+  // --- NOVO: Injetando o PedidoService ---
+  private pedidoService = inject(PedidoService);
 
   ngOnInit(): void {
     this.buscarItensDoCarrinho();
   }
 
-  // MÉTODO: GET /api/carrinho (Carrega dados iniciais)
   buscarItensDoCarrinho(): void {
     this.carrinhoService.buscarItens()
       .pipe(take(1)) 
@@ -49,22 +56,18 @@ export class CarrinhoComponent implements OnInit {
       });
   }
 
-  // MÉTODO: DELETE /api/carrinho/remover/{itemId}
   removerItem(itemId: number): void {
     this.carrinhoService.removerItem(itemId)
       .pipe(take(1))
       .subscribe({
         next: () => {
-          // Remove o item da lista local
           this.carrinhoItems = this.carrinhoItems.filter(item => item.itemId !== itemId);
-          // Recalcula o total com os itens restantes
           this.calcularTotal();
         },
         error: (err: any) => console.error('Erro ao remover item:', err)
       });
   }
 
-  // MÉTODO: PUT /api/carrinho/atualizar/{itemId}
   atualizarQuantidade(item: CarrinhoItem): void {
     if (item.quantidade < 1) {
       this.removerItem(item.itemId);
@@ -75,52 +78,54 @@ export class CarrinhoComponent implements OnInit {
       .pipe(take(1))
       .subscribe({
         next: (res: CarrinhoItem) => { 
-          // Atualiza o subtotal deste item com o valor exato que veio da minha API java
           item.subtotal = res.subtotal; 
           this.calcularTotal();
         },
         error: (err: any) =>{
           console.error('Erro ao atualizar: ', err);
-
           if(err.error && typeof err.error == 'string'){
             alert(err.error);
-          }else{
-            alert('Não foi possivel adicionar a quantidade')
+          } else {
+            alert('Não foi possivel atualizar a quantidade');
           }
-          this.buscarItensDoCarrinho();
-          
+          this.buscarItensDoCarrinho(); // Recarrega para garantir consistência
         }
       });
   }
 
-  // Método q soma o total
   calcularTotal(): void {
     this.total = this.carrinhoItems.reduce((acc, item) => acc + item.subtotal, 0);
   }
 
-  // MÉTODO: POST /api/pedidos
+  // --- MÉTODO CORRIGIDO ---
   finalizarCompra(): void {
     if (this.carrinhoItems.length === 0) {
       alert('Seu carrinho está vazio!');
       return;
     }
 
-    this.carrinhoService.finalizarCompra()
+    // AQUI ESTAVA O ERRO: Usamos pedidoService agora, pois ele retorna o PedidoViewDTO com o ID
+    this.pedidoService.finalizarCompra()
       .pipe(take(1))
       .subscribe({
-        next: (res: any) => { 
-          alert('Compra finalizada com sucesso! Seu pedido foi gerado.');
+        next: (res: PedidoViewDTO) => { 
+          console.log('Pedido gerado:', res);
+          
+          // Limpa a tela localmente (opcional, pois vai mudar de página)
           this.carrinhoItems = []; 
           this.total = 0;
-          this.router.navigate(['/']); 
+
+          // --- AQUI É A CORREÇÃO PRINCIPAL ---
+          // Antes estava ['/'], agora mandamos para a tela de sucesso com o ID
+          this.router.navigate(['/pedido-sucesso', res.pedidoId]); 
         },
         error: (err: any) => { 
           console.error('Erro ao finalizar a compra:', err);
 
-
-
           if (err.error && typeof err.error === 'string') {
-             alert(err.error); // Exibe: "Estoque insuficiente..." ou "Carrinho vazio..."
+             alert(err.error);
+          } else if (err.error && err.error.message) {
+             alert(err.error.message);
           } else {
              alert('Ocorreu um erro inesperado ao finalizar a compra.');
           }
