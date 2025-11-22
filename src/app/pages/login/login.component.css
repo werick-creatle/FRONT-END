@@ -1,0 +1,110 @@
+
+:root {
+    --color-primary: #9400d3; 
+    --color-surface: #1e1e1e; 
+    --color-text-light: #f5f5f5;
+    --color-success: #4CAF50; 
+    --color-text-muted: #aaa;
+}
+
+
+:host {
+    display: flex;
+    justify-content: center; 
+    align-items: center;    
+    min-height: 100vh;     
+    background-color: #292929; 
+    width: 100%;
+    font-family: Arial, sans-serif;
+    color: var(--color-text-light);
+}
+
+/* --- ESTILO DO CONTAINER --- */
+.login-container {
+    background-color: var(--color-surface);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    width: 350px;
+    text-align: center;
+}
+
+/* --- ESTILO DO TÍTULO --- */
+.login-container h2 {
+    font-size: 2em;
+    font-weight: 700;
+    margin-bottom: 30px;
+    border-left: 5px solid var(--color-primary);
+    padding-left: 15px;
+    color: var(--color-text-light);
+    text-align: left;
+}
+
+/* --- GRUPOS DO FORMULÁRIO --- */
+.form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--color-text-light);
+    font-weight: 600;
+}
+
+/* --- INPUTS --- */
+.form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: #2c2c2c;
+    color: var(--color-text-light);
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 1px var(--color-primary);
+}
+
+/* --- BOTÃO DE LOGIN --- */
+.login-button {
+    width: 100%;
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: background-color 0.2s;
+    margin-top: 1.5rem;
+}
+
+.login-button:hover {
+    background-color: #5d4a99;
+}
+
+/* --- ÍCONE OU LOGO --- */
+.icon-header {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.icon-header i {
+    font-size: 3rem;
+    color: var(--color-primary);
+}
+
+/* --- CASO TENHA IMAGEM (como o cadastro usa) --- */
+.icon-header img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}

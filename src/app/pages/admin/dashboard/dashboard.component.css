@@ -1,0 +1,93 @@
+/* Conteúdo abaixo do header fixo */
+.page-container {
+    margin-top: 100px;
+    padding: 20px;
+    max-width: 1200px;
+    margin-inline: auto;
+}
+
+/* Título da Página */
+.page-container h1 {
+    border-left: 5px solid var(--color-primary);
+    padding-left: 15px;
+    font-size: 2rem;
+    color: var(--color-text-light);
+    margin-bottom: 30px;
+}
+
+/* --- CARDS --- */
+.stats-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background-color: var(--color-surface);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .35);
+    transition: transform .2s;
+}
+
+.card:hover {
+    transform: scale(1.03);
+}
+
+.card h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0;
+    color: var(--color-primary);
+}
+
+.card p {
+    margin-top: 10px;
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+}
+
+/* --- BOXES FUTUROS --- */
+.bottom-section {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 20px;
+}
+
+.box {
+    background-color: #242424;
+    border: 1px solid rgba(255,255,255,0.05);
+    padding: 20px;
+    border-radius: 10px;
+    color: var(--color-text-light);
+}
+
+.box h3 {
+    color: var(--color-primary);
+    margin-bottom: 15px;
+}
+
+/* 🟣 Container padrão do Dashboard (igual o cadastrar jogo) */
+.dashboard-container {
+    max-width: 900px;
+    background: #1e1e1e;
+    padding: 32px;
+    margin: 30px auto;
+    border-radius: 14px;
+    text-align: center;
+    box-shadow: 0 5px 22px rgba(0, 0, 0, 0.55);
+}
+
+/* Ajuste para o título dentro do container */
+.dashboard-container h1 {
+    margin-bottom: 32px;
+    font-size: 2rem;
+    color: #8a2be2;
+    text-transform: uppercase;
+    border-left: none;
+    padding-left: 0;
+    letter-spacing: 1px;
+}
+

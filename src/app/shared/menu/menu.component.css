@@ -1,0 +1,36 @@
+/* ------------------------------------------------ */
+/* --- NAVEGAÇÃO PRINCIPAL --- */
+/* ------------------------------------------------ */
+
+.main-nav {
+  background-color: #242424;
+  padding: 15px 0;
+  border-bottom: 2px solid var(--color-primary);
+}
+
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center; /* ← CENTRALIZADO */
+  gap: 135px; /* ← ESPAÇAMENTO ENTRE OS ITENS */
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav ul li a {
+  padding: 8px 15px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border-radius: 4px;
+  color: var(--color-text-light);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.3s;
+}
+
+.main-nav ul li a.active,
+.main-nav ul li a:hover {
+  color: var(--color-primary);
+  background-color: #333;
+}

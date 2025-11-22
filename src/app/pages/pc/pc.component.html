@@ -1,0 +1,38 @@
+<section class="product-section">
+  <h2 class="section-title">COMPUTADORES 🖥️</h2>
+
+  <div class="product-grid">
+    @for (jogo of jogos; track $index) {
+      <div class="product-card">
+        
+        <div class="card-image-wrapper">
+          <img [src]="jogo.urlImagemCapa" [alt]="jogo.nome" />
+        </div>
+        
+        <div class="product-info">
+          <h3 class="product-title">{{ jogo.nome }}</h3>
+          
+          <div class="product-price-section">
+            <div class="product-price">
+              <span class="current-price">R$ {{ jogo.preco | number:'1.2-2' }}</span>
+            </div>
+            
+            <div class="product-actions">
+              <button class="action-icon cart-icon" (click)="adicionarAoCarrinho(jogo)">
+                <lucide-angular [img]="carrinhoIcone" [size]="20"></lucide-angular> 
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    }
+
+    <div *ngIf="jogos.length === 0" class="loading-message">
+        Carregando jogos para Pc...
+    </div>
+    <div *ngIf="eUltimaPagina && jogos.length > 0" class="fim-lista">
+        <p>Fim do catálogo de Pc!</p>
+    </div>
+
+  </div>
+</section>

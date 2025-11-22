@@ -1,0 +1,36 @@
+<header class="main-header">
+  <div class="container header-content">
+    <div class="logo">
+      Game<span class="logo-highlight">Store</span>
+    </div>
+
+    <div class="search-bar">
+      <input
+        type="text"
+        placeholder="Buscar jogos para pc, playstation ou xbox..."
+        class="search-input"
+      />
+      <lucide-angular
+        [img]="searchIcone"
+        [size]="20"
+        class="search-icon"
+      ></lucide-angular>
+    </div>
+
+    <div class="user-actions">
+      <a routerLink="/login" aria-label="Conta do Usuário">
+        <lucide-angular [img]="usuarioIcone"></lucide-angular>
+      </a>
+
+      <a routerLink="/admin" aria-label="Administrador">
+        <lucide-angular [img]="shield"></lucide-angular>
+      </a>
+
+      <a routerLink="/carrinho" aria-label="Carrinho de Compras">
+        <lucide-angular [img]="carrinhoIcone"></lucide-angular>
+      </a>
+    </div>
+  </div>
+</header>
+
+

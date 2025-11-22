@@ -1,0 +1,44 @@
+<section class="product-section">
+  <h2 class="section-title">CATALOGO 🕹️</h2>
+
+  <div class="product-grid">
+    @for (jogo of jogos; track $index) {
+      <div class="product-card">
+        
+        <div class="card-image-wrapper">
+          <img 
+            [src]="jogo.urlImagemCapa" 
+            [alt]="jogo.nome" 
+            (error)="jogo.urlImagemCapa='assets/placeholder.png'"
+          />
+        </div>
+        
+        <div class="product-info">
+          <h3 class="product-title">{{ jogo.nome }}</h3>
+          
+          <div class="product-price-section">
+            <span class="current-price">R$ {{ jogo.preco | number:'1.2-2' }}</span>
+            
+            <div class="product-actions">
+              <button class="action-icon cart-icon" (click)="adicionarAoCarrinho(jogo)">
+                <lucide-angular [img]="carrinhoIcone" [size]="20"></lucide-angular> 
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    }
+  </div>
+
+  <div class="load-more-container">
+    @if (!eUltimaPagina) {
+      <button class="btn-carregar-mais" (click)="carregarMais()">
+        Mais Jogos 
+      </button>
+    } @else if (jogos.length > 0) {
+      <p class="fim-lista">Você chegou ao fim do nosso catálogo de jogos!</p>
+    }
+  </div>
+
+</section>

@@ -1,0 +1,73 @@
+<div class="admin-container">
+  <h2>Adicionar Jogo</h2>
+
+  <form class="game-form">
+
+    <div class="form-group full">
+      <label for="nomeJogo">Nome do Jogo:</label>
+      <input
+        type="text"
+        id="nomeJogo"
+        placeholder="Ex: God of War Ragnarok"
+        required>
+    </div>
+
+    <div class="form-group">
+      <label for="tipoJogo">Categoria / Plataforma:</label>
+      <select id="tipoJogo" required>
+        <option value="" disabled selected>Selecione uma opção</option>
+        <option value="lancamento">Lançamentos</option>
+        <option value="catalogo">Catálogo</option>
+        <option value="pc">Computador (PC)</option>
+        <option value="playstation">PlayStation</option>
+        <option value="xbox">Xbox</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="precoBase">Preço Base (R$):</label>
+      <input
+        type="number"
+        id="precoBase"
+        placeholder="Ex: 199.90"
+        min="0"
+        step="0.01"
+        required>
+    </div>
+
+    <div class="form-group">
+      <label for="precoComDesconto">Preço com Desconto (R$):</label>
+      <input
+        type="number"
+        id="precoComDesconto"
+        placeholder="Ex: 149.90"
+        min="0"
+        step="0.01">
+    </div>
+
+    <div class="form-group">
+      <label for="precoComDesconto">Exemplo:</label>
+      <input
+        type="number"
+        id="precoComDesconto"
+        placeholder="Exemplo"
+        min="0"
+        step="0.01">
+    </div>
+
+    <div class="form-group full">
+      <label for="linkImagem">Link da Imagem (URL):</label>
+      <input
+        type="url"
+        id="linkImagem"
+        placeholder="https://exemplo.com/imagem.jpg"
+        required>
+    </div>
+
+  </form>
+
+  <div class="buttons">
+    <button type="submit" class="btn-add">Adicionar Jogo</button>
+  </div>
+
+</div>

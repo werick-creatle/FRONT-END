@@ -1,0 +1,64 @@
+<div class="cart-container">
+    <nav class="main-nav">
+  <div class="container">
+    <ul>
+      <li><a routerLink="/lancamentos">LANÇAMENTOS</a></li>
+      <li><a href="#" class="active">CATALOGO</a></li>
+      <li><a routerLink="/pc">COMPUTADOR</a></li>
+      <li><a routerLink="/playstation">PLAYSTATION</a></li>
+      <li><a routerLink="/xbox">XBOX</a></li>
+    </ul>
+  </div>
+</nav>
+    <h2 class="cart-title">Seu Carrinho de Compras</h2>
+
+    <div class="cart-grid">
+        
+        <div class="cart-header">
+            <span class="header-product">Produto</span>
+            <span class="header-price">Preço</span>
+            <span class="header-qty">Qtd.</span>
+            <span class="header-subtotal">Subtotal</span>
+            <span class="header-actions"></span>
+        </div>
+
+        <div class="cart-item">
+            <div class="item-product">
+                <img src="https://upload.wikimedia.org/wikipedia/pt/0/0d/Elden_Ring_capa.jpg" alt="Elden Ring" class="item-img">
+                <span class="item-title">Elden Ring</span>
+            </div>
+            <span class="item-price">R$ 149,99</span>
+            <span class="item-qty">1</span>
+            <span class="item-subtotal">R$ 149,99</span>
+            <div class="item-actions">
+                <button class="remove-btn action-icon">
+                    <lucide-angular [img]="lixeiraIcone" [size]="18"></lucide-angular>
+                </button>
+            </div>
+        </div>
+        
+        <div class="cart-item">
+            <div class="item-product">
+                <img src="https://m.media-amazon.com/images/I/71TGuDCUDrL._AC_UF1000,1000_QL80_.jpg" alt="Baldurs Gate 3" class="item-img">
+                <span class="item-title">Baldur's Gate 3</span>
+            </div>
+            <span class="item-price">R$ 299,99</span>
+            <span class="item-qty">1</span>
+            <span class="item-subtotal">R$ 299,99</span>
+            <div class="item-actions">
+                <button class="remove-btn action-icon">
+                    <lucide-angular [img]="lixeiraIcone" [size]="18"></lucide-angular>
+                </button>
+            </div>
+        </div>
+
+    </div>
+    
+    <div class="cart-summary">
+        <div class="summary-total">
+            <span>Total do Carrinho:</span>
+            <span class="total-value">R$ 449,98</span> 
+        </div>
+        <button class="checkout-btn">Finalizar Compra</button>
+    </div>
+</div>

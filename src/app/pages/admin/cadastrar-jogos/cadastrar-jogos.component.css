@@ -1,0 +1,126 @@
+/* 🌌 Container principal */
+.admin-container {
+  max-width: 600px;
+  background: #1e1e1e;
+  padding: 32px;
+  margin: 30px auto;
+  border-radius: 14px;
+  text-align: center;
+  box-shadow: 0 5px 22px rgba(0, 0, 0, 0.5);
+}
+
+/* 🏷️ Título */
+.admin-container h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #8a2be2;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* 📌 Formulário */
+.game-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* 📦 Grupo de input */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+/* Input + Select estilizados no padrão */
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 12px 15px;
+  background: #1a1a1a;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  color: #fff;
+  outline: none;
+  font-size: 1rem;
+  transition: 0.25s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #8a2be2;
+  box-shadow: 0 0 10px rgba(138, 43, 226, 0.6);
+}
+
+/* 🖊️ Labels */
+.form-group label {
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  color: #fff;
+  font-weight: 600;
+}
+
+/* 🔲 Inputs que ocupam toda largura */
+.full {
+  grid-column: span 2;
+}
+
+/* 🧩 Grid para melhor organização */
+.game-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.game-form .full {
+  grid-column: 1 / 3;
+}
+
+/* ✅ Botões */
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+/* ✅ Botão Adicionar sozinho e largo */
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+  width: 100%;
+}
+
+.btn-add {
+  width: 100%; /* Mesma largura do título */
+  max-width: 300px; /* Para não ficar gigantesco em telas grandes */
+  padding: 14px 0;
+  font-size: 0.95rem; /* Texto menor */
+  font-weight: 700;
+  background: #8a2be2;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.btn-add:hover {
+  background: #6c1dbd;
+  transform: translateY(-2px);
+  box-shadow: 0 0 14px rgba(138, 43, 226, 0.7);
+}
+
+
+
+/* 📱 Responsividade */
+@media (max-width: 500px) {
+  .game-form {
+    grid-template-columns: 1fr;
+  }
+  .full {
+    grid-column: 1;
+  }
+}
