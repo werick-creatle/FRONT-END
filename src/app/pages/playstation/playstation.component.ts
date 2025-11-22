@@ -89,7 +89,7 @@ export class PlaystationComponent implements OnInit {
     console.log('Enviando para o carrinho:', itemDTO);
 
     // 3. Chama o serviço
-    this.carrinhoService.adicionar(itemDTO).subscribe({
+    this.carrinhoService.adicionarAoCarrinho(itemDTO).subscribe({
       next: () => {
         alert(`"${jogo.nome}" adicionado ao carrinho!`); 
       },

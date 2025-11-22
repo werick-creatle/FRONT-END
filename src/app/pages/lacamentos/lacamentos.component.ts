@@ -52,7 +52,7 @@ export class LancamentosComponent implements OnInit {
     }
     const itemDTO = { jogoId: jogo.id, quantidade: 1 };
     
-    this.carrinhoService.adicionar(itemDTO).subscribe({
+    this.carrinhoService.adicionarAoCarrinho(itemDTO).subscribe({
       next: () => alert(`"${jogo.nome}" adicionado ao carrinho!`),
       error: () => alert('Erro ao adicionar.')
     });
