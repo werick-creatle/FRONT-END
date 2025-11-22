@@ -4,7 +4,9 @@
 .cart-container {
     max-width: 1000px;
     margin: 40px auto;
-    padding: 20px;
+    /* ALTERAÇÃO 1: Espaço extra no fundo para o rodapé não cobrir o último item */
+    padding: 20px 20px 140px 20px; 
+    
     background-color: var(--color-surface, #1e1e1e);
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
@@ -20,28 +22,26 @@
 }
 
 /* =========================================
-   2. ESTRUTURA DA GRADE (A MUDANÇA PRINCIPAL)
+   2. ESTRUTURA DA GRADE
    ========================================= */
 .cart-grid {
-    /* Removemos o grid daqui para evitar bagunça */
     display: flex;
     flex-direction: column;
     width: 100%;
 }
 
-/* AGORA DEFINIMOS O GRID EM CADA LINHA */
+/* GRID DAS LINHAS */
 .cart-header, 
 .cart-item {
     display: grid;
-    /* Define as colunas EXATAMENTE iguais para o cabeçalho e para os itens */
+    /* Colunas: Produto | Preço | Qtd | Subtotal | Lixeira */
     grid-template-columns: 3fr 1fr 0.8fr 1fr 0.5fr; 
     gap: 10px;
-    align-items: center; /* Centraliza verticalmente */
-    padding: 15px 10px;  /* Espaçamento interno da linha */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Linha divisória */
+    align-items: center; 
+    padding: 15px 10px;  
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Estilo específico do cabeçalho */
 .cart-header {
     border-bottom: 2px solid rgba(255, 255, 255, 0.1);
     font-weight: 700;
@@ -54,20 +54,18 @@
 /* =========================================
    3. ESTILO DAS CÉLULAS
    ========================================= */
-/* Centraliza o conteúdo de cada célula (Preço, Qtd, Subtotal) */
 .cart-item > span, 
 .cart-item > div {
     display: flex;
     align-items: center;
-    justify-content: center; /* Centraliza horizontalmente */
+    justify-content: center; 
     color: var(--color-text-light, #f5f5f5);
 }
 
 /* --- PRODUTO (FOTO + NOME) --- */
-/* Alinha à esquerda */
 .item-product {
     justify-content: flex-start !important; 
-    flex-direction: row !important; /* Garante foto ao lado do texto */
+    flex-direction: row !important; 
     gap: 15px;
     text-align: left;
 }
@@ -78,7 +76,7 @@
     object-fit: cover;
     border-radius: 4px;
     background-color: #333;
-    display: block; /* Garante que a imagem ocupe espaço */
+    display: block; 
 }
 
 .item-title {
@@ -89,14 +87,14 @@
 
 /* --- INPUT DE QUANTIDADE --- */
 .qty-input {
-    width: 50px; /* Largura fixa */
-    height: 35px; /* Altura fixa para ficar bonito */
+    width: 50px; 
+    height: 35px; 
     text-align: center;
     border: 1px solid var(--color-text-muted, #555);
     background-color: var(--color-surface, #2c2c2c);
     color: var(--color-text-light, #fff);
     border-radius: 4px;
-    margin: 0 auto; /* Centraliza o input no espaço dele */
+    margin: 0 auto; 
 }
 
 /* --- BOTÃO REMOVER --- */
@@ -106,8 +104,8 @@
     background-color: transparent;
     cursor: pointer;
     border-radius: 50%;
-    width: 35px;  /* Tamanho fixo para garantir o círculo */
-    height: 35px; /* Tamanho fixo */
+    width: 35px;  
+    height: 35px; 
     padding: 0;
     display: flex;
     align-items: center;
@@ -122,47 +120,70 @@
 }
 
 /* =========================================
-   4. RODAPÉ
+   4. RODAPÉ FIXO (ALTERAÇÃO PRINCIPAL)
    ========================================= */
 .cart-summary {
+    /* Fixa o elemento na tela */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    
+    /* Garante o fundo escuro igual ao do container */
+    background-color: var(--color-surface, #1e1e1e);
+    
+    /* Sombra para cima para separar do conteúdo */
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.5);
+    
+    /* Borda superior roxa para manter seu estilo */
+    border-top: 3px solid var(--color-primary, #6200ea);
+    
+    /* Layout interno */
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between; /* Total na esq, Botão na dir */
     align-items: center;
-    gap: 30px;
-    padding-top: 20px;
-    margin-top: 20px;
-    border-top: 2px solid var(--color-primary, #6200ea);
+    
+    /* Espaçamento: 15px cima/baixo, 10% nas laterais para centralizar visualmente */
+    padding: 5px 10%; 
+    z-index: 1000; /* Fica por cima de tudo */
 }
 
 .summary-total {
-    font-size: 1.5em;
+    font-size: 1.3em;
     font-weight: 700;
     display: flex;
-    align-items: center;
-    gap: 10px;
+    flex-direction: column; /* "Total" em cima, valor embaixo */
+    align-items: flex-start;
+}
+
+.summary-total span:first-child {
+    font-size: 0.8em;
+    color: #aaa;
+    font-weight: 400;
 }
 
 .total-value {
+    font-size: 1.4em;
     color: var(--color-success, #4CAF50);
 }
 
-.checkout-btn {
+.btn-finalizar {
     background-color: var(--color-primary, #6200ea);
     color: white;
     border: none;
-    padding: 12px 30px;
-    border-radius: 5px;
+
+    padding: 12px 30px; 
+    border-radius: 7px;
     cursor: pointer;
     font-size: 1.1em;
     font-weight: 600;
     transition: background-color 0.2s;
 }
 
-.checkout-btn:hover {
+.btn-finalizar:hover {
     background-color: #5000cc;
 }
 
-/* EXTRAS */
 .cart-empty-message {
     text-align: center;
     padding: 40px;
@@ -175,4 +196,22 @@
     padding: 10px 20px;
     border-radius: 5px;
     text-decoration: none;
+}
+
+/* Responsividade para Celular */
+@media (max-width: 600px) {
+    .cart-container {
+        margin: 10px;
+        padding-bottom: 160px; /* Mais espaço no mobile */
+    }
+
+    .cart-summary {
+        padding: 15px 5%; /* Menos recuo lateral no celular */
+        flex-direction: row; 
+    }
+    
+    .btn-finalizar {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
 }

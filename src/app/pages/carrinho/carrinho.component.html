@@ -35,5 +35,9 @@
                 <span>Total do Carrinho:</span>
                 <span class="total-value">{{ total | currency:'BRL' }}</span> 
             </div>
-            <button (click)="finalizarCompra()" class="checkout-btn">Finalizar Compra</button>
+
+            <button (click)="finalizarCompra()" class="btn-finalizar">
+                Finalizar Compra
+            </button>
+            
         </div>

@@ -76,18 +76,26 @@ export class CarrinhoComponent implements OnInit {
       .pipe(take(1))
       .subscribe({
         next: (res: CarrinhoItem) => { 
-          // Atualiza o subtotal deste item com o valor exato que veio do Java
+          // Atualiza o subtotal deste item com o valor exato que veio da minha API java
           item.subtotal = res.subtotal; 
           this.calcularTotal();
         },
-        error: (err: any) => console.error('Erro ao atualizar quantidade:', err)
+        error: (err: any) =>{
+          console.error('Erro ao atualizar: ', err);
+
+          if(err.error && typeof err.error == 'string'){
+            alert(err.error);
+          }else{
+            alert('Não foi possivel adicionar a quantidade')
+          }
+          this.buscarItensDoCarrinho();
+          
+        }
       });
   }
 
-  // MÉTODO AUXILIAR: Soma os subtotais
+  // Método q soma o total
   calcularTotal(): void {
-    // Usamos 'reduce' somando o 'item.subtotal' (que veio do Java)
-    // Isso é mais seguro do que multiplicar preço * quantidade no front-end
     this.total = this.carrinhoItems.reduce((acc, item) => acc + item.subtotal, 0);
   }
 
@@ -109,7 +117,14 @@ export class CarrinhoComponent implements OnInit {
         },
         error: (err: any) => { 
           console.error('Erro ao finalizar a compra:', err);
-          alert('Não foi possível finalizar a compra. Tente novamente.');
+
+
+
+          if (err.error && typeof err.error === 'string') {
+             alert(err.error); // Exibe: "Estoque insuficiente..." ou "Carrinho vazio..."
+          } else {
+             alert('Ocorreu um erro inesperado ao finalizar a compra.');
+          }
         }
       });
   }

@@ -1,36 +1,137 @@
-/* ------------------------------------------------ */
-/* --- NAVEGAÇÃO PRINCIPAL --- */
-/* ------------------------------------------------ */
-
+/* ============================================================
+   1. ESTILO GERAL (COMPUTADOR / TELA GRANDE)
+   ============================================================ */
 .main-nav {
-  background-color: #242424;
-  padding: 15px 0;
-  border-bottom: 2px solid var(--color-primary);
+  background-color: #1e1e1e; /* Fundo escuro */
+  padding: 20px 0;
+  border-bottom: 2px solid var(--color-primary, #6200ea); /* Linha roxa */
+  font-family: sans-serif;
+  position: relative; /* Importante para o z-index funcionar */
+  z-index: 1000; /* Garante que a barra fique sobre o conteúdo do site */
 }
 
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  
+  /* Organiza os itens na linha */
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centraliza tudo no meio da tela */
+}
+
+/* LOGO (Opcional) */
+.logo {
+  display: none; 
+  font-weight: bold;
+  color: #6200ea;
+  margin-right: auto;
+}
+
+/* BOTÃO HAMBÚRGUER */
+.menu-btn {
+  display: none; /* Some no PC */
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.8rem;
+  cursor: pointer;
+  position: absolute;
+  left: 20px; 
+  
+  /* IMPORTANTE: O botão tem o maior z-index para nunca ser bloqueado */
+  z-index: 1002; 
+}
+
+/* A LISTA DE LINKS (Desktop) */
 .main-nav ul {
   list-style: none;
-  display: flex;
-  justify-content: center; /* ← CENTRALIZADO */
-  gap: 135px; /* ← ESPAÇAMENTO ENTRE OS ITENS */
-  flex-wrap: wrap;
   margin: 0;
   padding: 0;
+  display: flex;
+  gap: 50px; 
+  align-items: center;
 }
 
 .main-nav ul li a {
-  padding: 8px 15px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  border-radius: 4px;
-  color: var(--color-text-light);
+  color: #e0e0e0;
   text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9rem; 
+  letter-spacing: 1px;
   text-transform: uppercase;
-  transition: all 0.3s;
+  transition: color 0.3s;
+  cursor: pointer;
 }
 
-.main-nav ul li a.active,
 .main-nav ul li a:hover {
-  color: var(--color-primary);
-  background-color: #333;
+  color: var(--color-primary, #6200ea);
+}
+
+/* ============================================================
+   2. ESTILO RESPONSIVO (CELULAR)
+   ============================================================ */
+@media (max-width: 768px) {
+  
+  .main-nav {
+    padding: 15px 0;
+  }
+
+  /* 1. Mostra o botão */
+  .menu-btn {
+    display: block;
+  }
+
+  .container {
+    justify-content: flex-start; 
+  }
+
+  /* 2. O FUNDO ESCURO (OVERLAY) - A PEÇA QUE FALTAVA */
+  /* Isso cobre a tela toda atrás do menu para capturar o clique */
+  .menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo escuro transparente */
+    z-index: 998; /* Fica atrás do menu, mas na frente do site */
+  }
+
+  /* 3. O MENU GAVETA */
+  .main-nav ul {
+    display: none;    
+    position: absolute;
+    top: 100%;       
+    left: 0;
+    width: 100%;      
+    
+    flex-direction: column; 
+    background-color: #242424; 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    
+    padding: 10px 0;
+    gap: 0; 
+    
+    /* Fica na frente do Overlay (998) mas atrás do botão (1002) */
+    z-index: 999; 
+  }
+
+  /* 4. Aparece quando active */
+  .main-nav ul.active {
+    display: flex;
+  }
+
+  /* 5. Estilo dos Links */
+  .main-nav ul li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .main-nav ul li a {
+    display: block; 
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
 }

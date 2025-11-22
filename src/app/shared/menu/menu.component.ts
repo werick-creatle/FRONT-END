@@ -9,4 +9,22 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.css']
 })
-export class MenuComponent {}
+
+
+//Metodo para fazer o menu lateral quando a tela for apertada
+export class MenuComponent {
+  
+  // Variável de controle: começa fechado (false)
+  menuAberto: boolean = false;
+
+  // Função que inverte o valor (se tá fechado, abre; se tá aberto, fecha)
+  alterarMenu() {
+    this.menuAberto = !this.menuAberto;
+  }
+
+  // Função para fechar o menu quando clicar em um link
+  fecharMenu() {
+    this.menuAberto = false;
+
+  }
+}
