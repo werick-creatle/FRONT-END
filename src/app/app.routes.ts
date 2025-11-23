@@ -17,6 +17,7 @@ import { ListarJogosComponent } from './pages/admin/listar-jogos/listar-jogos.co
 import { EditarJogoComponent } from './pages/admin/editar-jogo/editar-jogo.component'; 
 
 import { RemoverJogosComponent } from './pages/admin/remover-jogos/remover-jogos.component';
+import { PerfilComponent } from './pages/perfil/perfil.component';
 
 
 
@@ -61,6 +62,11 @@ export const routes: Routes = [
         component: LoginComponent,
     },
 
+    {
+        path: 'perfil',
+        component: PerfilComponent,
+    },
+    
     // --- ROTAS DO ADMIN ---
     {
         path: 'admin',

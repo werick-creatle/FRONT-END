@@ -1,42 +1,28 @@
-import { Injectable, inject } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 
-// ===========================================
-// ## 🧩 Interfaces e DTOs (Modelos de Dados)
-// ===========================================
-
-export interface Jogo {
-  id: number;
-  nome: string;
-  preco: number;
-  imagemUrl: string;
-}
+// --- 1. INTERFACES (Ajustadas para bater com o Java) ---
 
 export interface CarrinhoItem {
   itemId: number;
-  nomeJogo: Jogo;
+  jogoId: number;        // Adicionado para bater com o Java
+  nomeJogo: string;      // MUDANÇA: Java manda String, não Objeto
   urlImagemCapa: string;
   precoUnitario: number;
-
   quantidade: number;
   subtotal: number;
 }
 
 export interface CarrinhoViewDTO {
   itens: CarrinhoItem[];
-  total: number;
+  valorTotal: number; // Certifique-se que seu Java manda 'valorTotal' ou 'total'
 }
 
 export interface ItemAdicionarDTO {
   jogoId: number;
   quantidade: number;
 }
-
-
-// ===========================================
-// ## ⚙️ Serviço Principal (CarrinhoService)
-// ===========================================
 
 @Injectable({
   providedIn: 'root'
@@ -45,38 +31,74 @@ export class CarrinhoService {
 
   private apiUrl = 'http://localhost:8080/api/carrinho';
 
-  // --- Propriedades Privadas (Injeções e URLs) ---
-  private http = inject(HttpClient);
+  private quantidadeSubject = new BehaviorSubject<number>(0);
+  
+  // Variável que o Header vai ler (RESOLVE O ERRO VERMELHO)
+  quantidadeItens$ = this.quantidadeSubject.asObservable();
 
+  constructor(private http: HttpClient) {
 
-  // --- 1. MÉTODOS DE CONSULTA (GET) ---
+  }
 
-  // GET /api/carrinho
+  // --- 3. LÓGICA AUXILIAR ---
+  
+  private atualizarContador(itens: CarrinhoItem[]) {
+    if (!itens) {
+      this.quantidadeSubject.next(0);
+      return;
+    }
+    // Soma a quantidade de todos os itens
+    const total = itens.reduce((acc, item) => acc + item.quantidade, 0);
+    this.quantidadeSubject.next(total);
+  }
+
+  // --- 4. MÉTODOS HTTP (Com withCredentials e tap) ---
+
+  // GET - Buscar
   buscarItens(): Observable<CarrinhoViewDTO> {
-    return this.http.get<CarrinhoViewDTO>(this.apiUrl);
+    return this.http.get<CarrinhoViewDTO>(this.apiUrl, { withCredentials: true }).pipe(
+      tap(retorno => {
+        // Toda vez que busca, atualiza a bolinha do header
+        if (retorno && retorno.itens) {
+          this.atualizarContador(retorno.itens);
+        }
+      })
+    );
   }
 
-
-  // --- 2. MÉTODOS DE AÇÃO (POST / PUT / DELETE) ---
-
-  // POST /api/carrinho/adicionar (Adiciona um novo item ou atualiza a quantidade)
+  // POST - Adicionar
   adicionarAoCarrinho(dados: ItemAdicionarDTO): Observable<any> {
-    return this.http.post(`${this.apiUrl}/adicionar`, dados);
+    return this.http.post(`${this.apiUrl}/adicionar`, dados, { withCredentials: true }).pipe(
+      tap(() => {
+        // Depois de adicionar, recarrega o carrinho para atualizar o contador
+        this.buscarItens().subscribe();
+      })
+    );
   }
 
-  // PUT /api/carrinho/atualizar/{itemId} (Atualiza a quantidade de um item existente)
-  atualizarQuantidade(itemId: number, quantidade: number): Observable<CarrinhoItem> {
+  // PUT - Atualizar Qtd
+  atualizarQuantidade(itemId: number, quantidade: number): Observable<any> {
     const body = { quantidade };
-    return this.http.put<CarrinhoItem>(`${this.apiUrl}/atualizar/${itemId}`, body);
+    return this.http.put(`${this.apiUrl}/atualizar/${itemId}`, body, { withCredentials: true }).pipe(
+      tap(() => this.buscarItens().subscribe())
+    );
   }
 
-  // DELETE /api/carrinho/remover/{itemId} (Remove um item do carrinho)
+  // DELETE - Remover
   removerItem(itemId: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/remover/${itemId}`);
+    return this.http.delete<void>(`${this.apiUrl}/remover/${itemId}`, { withCredentials: true }).pipe(
+      tap(() => this.buscarItens().subscribe())
+    );
   }
 
-  // POST /api/pedidos (Finaliza a compra e move o carrinho para um pedido)
+  // POST - Finalizar Pedido
   finalizarCompra(): Observable<any> {
-    return this.http.post('/api/pedidos', {});
+    // Atenção: Ajustei a rota para /pedidos/finalizar conforme conversamos antes
+    return this.http.post('http://localhost:8080/api/pedidos/finalizar', {}, { withCredentials: true }).pipe(
+      tap(() => {
+        // Compra feita -> Carrinho vazio -> Contador zero
+        this.quantidadeSubject.next(0);
+      })
+    );
   }
 }

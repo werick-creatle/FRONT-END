@@ -48,7 +48,7 @@ export class CarrinhoComponent implements OnInit {
       .subscribe({
         next: (res: CarrinhoViewDTO) => { 
           this.carrinhoItems = res.itens; 
-          this.total = res.total; 
+          this.total = res.valorTotal; 
         },
         error: (err: any) => { 
           console.error('Erro ao buscar itens do carrinho:', err);
@@ -70,7 +70,7 @@ export class CarrinhoComponent implements OnInit {
 
   atualizarQuantidade(item: CarrinhoItem): void {
     if (item.quantidade < 1) {
-      this.removerItem(item.itemId);
+      this.removerItem(item.itemId);''
       return;
     }
 

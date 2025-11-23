@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
-import { LucideAngularModule, UserIcon, Shield, ShoppingCart, Search } from 'lucide-angular';
+import { RouterLink, Router } from '@angular/router';
+import { LucideAngularModule, UserIcon, Shield, ShoppingCart, Search, LogOut } from 'lucide-angular';
+import { AuthService } from '../../services/auth.service';
+import { CarrinhoService } from '../../services/carrinho.service';
+import { Observable } from 'rxjs'; // <--- Importante importar isso
 
 @Component({
   selector: 'app-header',
@@ -11,8 +14,26 @@ import { LucideAngularModule, UserIcon, Shield, ShoppingCart, Search } from 'luc
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
+  
   usuarioIcone = UserIcon;
   shield = Shield;
   carrinhoIcone = ShoppingCart;
   searchIcone = Search;
+  logoutIcone = LogOut; 
+
+  quantidadeItens$: Observable<number>;
+
+  constructor(
+    public authService: AuthService,
+    private carrinhoService: CarrinhoService,
+    private router: Router
+  ) {
+  
+    this.quantidadeItens$ = this.carrinhoService.quantidadeItens$;
+  }
+
+  logout() {
+    this.authService.deslogar();
+    this.router.navigate(['/login']);
+  }
 }
