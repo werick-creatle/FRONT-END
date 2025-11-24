@@ -21,7 +21,7 @@ export class GerenciarJogosComponent implements OnInit {
   }
 
   carregarJogos() {
-    // Busca a lista padrão (página 0, tamanho 100 pra pegar tudo ou ajuste conforme sua API)
+    // Busca a lista padrão (página 0, tamanho 100 pra pegar tudo ou ajuste conforme a minha API)
     this.gameService.listar(0, 100).subscribe({
       next: (dados: any) => {
         this.jogos = dados.content ? dados.content : dados;

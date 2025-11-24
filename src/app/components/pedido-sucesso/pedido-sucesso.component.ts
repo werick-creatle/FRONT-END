@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 
 
-// ATENÇÃO AQUI: Usamos "../../" para voltar pastas até chegar em 'app'
 import { PedidoViewDTO } from '../../models/pedido.model'; 
 import { PedidoService } from '../../services/pedido.service';
 

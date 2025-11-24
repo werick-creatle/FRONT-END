@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router'; // Importante para ler a URL
-import { GameService } from '../../../services/game.service'; // Ajuste o caminho se necessário
+import { ActivatedRoute, Router } from '@angular/router';
+import { GameService } from '../../../services/game.service'; 
 
 @Component({
   selector: 'app-editar-jogo',

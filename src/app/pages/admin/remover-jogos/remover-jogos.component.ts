@@ -12,7 +12,7 @@ import { LucideAngularModule, Trash2 } from 'lucide-angular';
     LucideAngularModule
   ],
   templateUrl: './remover-jogos.component.html',
-  styleUrls: ['./remover-jogos.component.css'] // era styleUrl
+  styleUrls: ['./remover-jogos.component.css']
 })
 export class RemoverJogosComponent {
 
@@ -21,9 +21,6 @@ export class RemoverJogosComponent {
 
   removerItem(id: number) {
     console.log('Removendo jogo com id:', id);
-
-    // Aqui depois você liga seu service:
-    // this.jogoService.deletar(id).subscribe(...)
   }
 
 }

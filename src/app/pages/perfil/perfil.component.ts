@@ -16,7 +16,7 @@ export class PerfilComponent implements OnInit {
   usuario = {
     nomeCompleto: '',
     dataNascimento: '',
-    login: '' // Email (Geralmente apenas leitura)
+    login: '' // Email 
   };
 
   constructor(private usuarioService: UsuarioService) {}
@@ -39,7 +39,7 @@ export class PerfilComponent implements OnInit {
   }
 
   onSubmit() {
-    // Monta o objeto EXATO que o Backend espera (conforme seu JSON anterior)
+    // Monta o objeto EXATO que o Backend espera (conforme meu jason)
     const dadosParaEnviar = {
       nomeCompleto: this.usuario.nomeCompleto,
       dataNascimento: this.usuario.dataNascimento

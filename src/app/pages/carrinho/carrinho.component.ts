@@ -97,26 +97,25 @@ export class CarrinhoComponent implements OnInit {
     this.total = this.carrinhoItems.reduce((acc, item) => acc + item.subtotal, 0);
   }
 
-  // --- MÉTODO CORRIGIDO ---
+
   finalizarCompra(): void {
     if (this.carrinhoItems.length === 0) {
       alert('Seu carrinho está vazio!');
       return;
     }
 
-    // AQUI ESTAVA O ERRO: Usamos pedidoService agora, pois ele retorna o PedidoViewDTO com o ID
     this.pedidoService.finalizarCompra()
       .pipe(take(1))
       .subscribe({
         next: (res: PedidoViewDTO) => { 
           console.log('Pedido gerado:', res);
           
-          // Limpa a tela localmente (opcional, pois vai mudar de página)
+          // Limpa a tela localmente
           this.carrinhoItems = []; 
           this.total = 0;
 
-          // --- AQUI É A CORREÇÃO PRINCIPAL ---
-          // Antes estava ['/'], agora mandamos para a tela de sucesso com o ID
+ 
+  
           this.router.navigate(['/pedido-sucesso', res.pedidoId]); 
         },
         error: (err: any) => { 

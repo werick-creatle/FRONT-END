@@ -42,7 +42,7 @@ export class CadastrarJogosComponent {
         this.router.navigate(['/']); 
       },
       error: (err) => {
-        console.error('Erro detalhado:', err); // <--- Ajuda a ver o erro no Console (F12)
+        console.error('Erro detalhado:', err);
         
         if (err.status === 403) {
            alert('ACESSO NEGADO: O servidor recusou o cadastro. Verifique se você é ADMIN.');

@@ -7,7 +7,7 @@ import { CarrinhoService } from '../../services/carrinho.service';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
-  selector: 'app-xbox', // <--- CORRIGIDO
+  selector: 'app-xbox', 
   standalone: true,
   imports: [CommonModule, LucideAngularModule],
   templateUrl: './xbox.component.html',
@@ -38,12 +38,11 @@ export class XboxComponent implements OnInit {
   ) {} 
 
   ngOnInit(): void {
-    this.buscarJogosXbox(); // <--- CORRIGIDO
+    this.buscarJogosXbox(); 
   }
 
-  buscarJogosXbox() { // <--- CORRIGIDO
-    // Filtra apenas jogos de XBOX
-    // (Certifique-se que no Admin você salvou como 'XBOX' maiúsculo)
+  //Filtro para apenas jogos de Xbox
+  buscarJogosXbox() { 
     this.gameService.listar(this.paginaAtual, this.tamanhoDaPagina, 'XBOX').subscribe({
       next: (dados: any) => {
         // Se a API retornar array direto (sem paginação)
@@ -68,21 +67,21 @@ export class XboxComponent implements OnInit {
   carregarMais() {
     if (!this.eUltimaPagina) {
       this.paginaAtual++;
-      this.buscarJogosXbox(); // <--- CORRIGIDO
+      this.buscarJogosXbox(); 
     }
   }
 
-  // MÉTODO PARA ADICIONAR AO CARRINHO
+  // Metodo para adicionar os jogos ao carrinho
   adicionarAoCarrinho(jogo: any) {
     
-    // 1. Verificação de segurança
+    //Verificação para saber se o usuario esta logado
     if (!this.authService.estaLogado()) {
       alert('Você precisa fazer login para comprar!');
       this.router.navigate(['/login']);
       return;
     }
 
-    // 2. Monta o objeto para o carrinho
+    //Monta o objeto para o carrinho
     const itemDTO = {
       jogoId: jogo.id, 
       quantidade: 1

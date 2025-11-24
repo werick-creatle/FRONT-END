@@ -14,7 +14,7 @@ import { CarrosselComponent } from './components/carrossel/carrossel.component';
   imports: [
     CommonModule,
     LucideAngularModule,
-    CarrosselComponent // ← ADICIONE AQUI
+    CarrosselComponent 
   ],
   templateUrl: './lacamentos.component.html',
   styleUrl: './lacamentos.component.css'
