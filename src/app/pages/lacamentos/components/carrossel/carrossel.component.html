@@ -1,0 +1,20 @@
+<div class="carousel-container">
+  
+  <div 
+    class="carousel-track" 
+    [style.width]="trackWidthPercentage + '%'"
+    [style.transform]="currentTransform">
+
+    <div 
+      class="carousel-slide" 
+      *ngFor="let slide of slides" 
+      [ngClass]="slide.imgClass"
+      [style.width]="slideWidthPercentage + '%'">
+      
+      <div class="slide-content">
+      </div>
+
+    </div>
+
+  </div>
+</div>

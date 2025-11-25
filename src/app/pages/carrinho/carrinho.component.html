@@ -1,0 +1,55 @@
+<div class="cart-wrapper">
+
+    <!-- LISTA DE ITENS DO CARRINHO -->
+    <div class="cart-item" *ngFor="let item of carrinhoItems">
+
+        <div class="item-product">
+            <img [src]="item.urlImagemCapa || 'assets/placeholder.jpg'" [alt]="item.nomeJogo" class="item-img">
+            <span class="item-title">{{ item.nomeJogo }}</span>
+        </div>
+
+        <span class="item-price">
+            {{ item.precoUnitario | currency:'BRL' }}
+        </span>
+
+        <span class="item-qty">
+
+            <button class="qty-btn"
+                (click)="item.quantidade = item.quantidade > 1 ? item.quantidade - 1 : 1; atualizarQuantidade(item)">
+                −
+            </button>
+
+            <span class="qty-number">{{ item.quantidade }}</span>
+
+            <button class="qty-btn" (click)="item.quantidade = item.quantidade + 1; atualizarQuantidade(item)">
+                +
+            </button>
+
+        </span>
+
+
+        <span class="item-subtotal">
+            {{ item.subtotal | currency:'BRL':'symbol':'1.2-2':'pt' }}
+        </span>
+
+        <div class="item-actions">
+            <button (click)="removerItem(item.itemId)" class="remove-btn action-icon">
+                <lucide-angular [img]="lixeiraIcone" [size]="18"></lucide-angular>
+            </button>
+        </div>
+
+    </div>
+
+    <!-- RESUMO DO CARRINHO / FOOTER FIXO -->
+    <div class="cart-summary">
+        <div class="summary-total">
+            <span>Total do Carrinho: </span>
+            <span class="total-value">{{ total | currency:'BRL' }}</span>
+        </div>
+
+        <button (click)="finalizarCompra()" class="btn-finalizar">
+            Finalizar Compra
+        </button>
+    </div>
+
+</div>

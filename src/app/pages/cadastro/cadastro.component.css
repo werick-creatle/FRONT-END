@@ -1,0 +1,136 @@
+/* --- VARIÁVEIS DE COR (Para consistência com o Carrinho) --- */
+:root {
+    --color-primary: #8a2be2; /* Roxo/Magenta */
+    --color-surface: #1e1e1e; /* Fundo do Container do Carrinho */
+    --color-text-light: #f5f5f5;
+    --color-success: #4CAF50; /* Verde do Valor Total */
+    --color-text-muted: #aaa;
+}
+
+/* --- CENTRALIZAÇÃO DO COMPONENTE --- */
+:host {
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    min-height: 100vh;       
+    background-color: #000000;
+    width: 100%;
+    font-family: Arial, sans-serif;
+    color: var(--color-text-light);
+}
+
+/* --- CONTAINER DO CADASTRO --- */
+.login-container {
+    background-color: black;
+    padding: 2rem;
+    border-radius: 10px;
+
+    border: 2px solid var(--color-primary);
+    box-shadow: 0 0 12px rgba(138, 43, 226, 0.4);
+
+    width: 350px;
+    text-align: center;
+}
+
+/* --- TÍTULO --- */
+.login-container h2 {
+    font-size: 2em;
+    font-weight: 700;
+    margin-bottom: 30px;
+    border-left: 5px solid var(--color-primary);
+    padding-left: 15px;
+    color: var(--color-text-light);
+    text-align: left;
+}
+
+/* --- FORM GROUP --- */
+.form-group {
+    margin-bottom: 1.5rem; 
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--color-text-light);
+    font-weight: 600;
+}
+
+/* --- INPUTS --- */
+.form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgb(8, 8, 8); 
+    color: var(--color-text-light);
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 1px var(--color-primary);
+}
+
+/* --- BOTÃO CADASTRAR / LOGIN --- */
+.login-button {
+    width: 100%;
+    padding: 12px 22px;
+    font-size: 1.2rem;
+    background-color: rgb(8, 8, 8); 
+    border: 1px solid var(--color-primary); /* Contorno roxo */
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s ease;
+    margin-top: 1.5rem;
+}
+
+.login-button:hover {
+    background-color: var(--color-primary); /* Fica roxo no hover */
+    transform: translateY(-2px);
+}
+
+/* --- ÍCONE / IMAGEM DE PERFIL --- */
+.icon-header {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.icon-header i {
+    font-size: 3rem;
+    color: var(--color-primary);
+}
+
+.icon-header img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.icon-header h2 {
+    margin-top: 0;
+}
+
+/* --- LINK LOGIN/CADASTRO --- */
+.login-link-message {
+    margin-top: 1.5rem;
+    font-size: 0.9em;
+    color: var(--color-text-muted);
+}
+
+.login-link-message a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.login-link-message a:hover {
+    color: #a842f4;
+    text-decoration: underline;
+}

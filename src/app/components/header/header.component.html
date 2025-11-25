@@ -1,0 +1,52 @@
+<header class="main-header">
+  <div class="container header-content">
+
+    <a routerLink="/lancamentos" class="logo-link" aria-label="Ir para a página inicial">
+      <div class="logo">
+        Game<span class="logo-highlight">Store</span>
+      </div>
+    </a>
+
+    <div class="search-bar">
+      <input type="text" placeholder="Buscar jogos..." class="search-input" />
+      <lucide-angular [img]="searchIcone" [size]="20" class="search-icon"></lucide-angular>
+    </div>
+
+    <div class="user-actions">
+
+
+      <a *ngIf="!authService.estaLogado()" routerLink="/login" aria-label="Fazer Login" title="Entrar">
+        <lucide-angular [img]="usuarioIcone" color="#a855f7"></lucide-angular>
+      </a>
+
+
+      <ng-container *ngIf="authService.estaLogado()">
+
+        <a routerLink="/perfil" aria-label="Meu Perfil" title="Meu Perfil">
+          <lucide-angular [img]="usuarioIcone" color="#a855f7"></lucide-angular> </a>
+
+
+        <a routerLink="/admin" aria-label="Painel Admin" title="Administração">
+          <lucide-angular [img]="shield" color="#a855f7" ></lucide-angular>
+        </a>
+
+    
+        <a routerLink="/carrinho" aria-label="Carrinho" class="cart-container">
+          <lucide-angular [img]="carrinhoIcone" color="#a855f7"></lucide-angular>
+
+
+          <span *ngIf="(quantidadeItens$ | async) as qtd" class="cart-badge">
+            {{ qtd }}
+          </span>
+        </a>
+
+
+        <a (click)="logout()" style="cursor: pointer;" aria-label="Sair" title="Sair">
+          <lucide-angular [img]="logoutIcone" color="#ef4444"></lucide-angular> </a>
+      </ng-container>
+
+
+
+    </div>
+  </div>
+</header>

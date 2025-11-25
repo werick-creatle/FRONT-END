@@ -1,0 +1,90 @@
+.main-header {
+  background-color: black;
+  padding: 20px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.container {
+  width: 95%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 2em;
+  font-weight: 700;
+  color: var(--color-text-light);
+}
+
+.logo-highlight {
+  color: var(--color-primary);
+}
+
+.search-bar {
+  flex-grow: 1;
+  margin: 0 40px;
+  position: relative;
+  max-width: 500px;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px solid #333;
+  border-radius: 20px;
+  background-color: rgb(8, 8, 8); 
+  color: #fff;
+  font-size: 0.9em;
+  padding-right: 45px;
+}
+
+.search-icon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-primary);
+}
+
+.user-actions a {
+  margin-left: 20px;
+  font-size: 1.8em;
+  color: var(--color-text-light);
+}
+
+.user-actions a:hover {
+  color: var(--color-primary);
+}
+
+/* NOVO SELETOR: Garante que o link se comporte como um bloco de logo */
+.logo-link {
+    /* Remove o sublinhado padrão do link */
+    text-decoration: none; 
+    /* Garante que o link não herde uma cor padrão e use a cor do texto do logo */
+    color: inherit; 
+    /* Adiciona margem para empurrar a barra de pesquisa para a direita (Desktop) */
+    margin-right: 50px; 
+}
+
+/* Opcional: Garante que o cursor seja de ponteiro (mãozinha) sobre o logo */
+.logo-link:hover {
+    cursor: pointer;
+}
+
+.cart-badge {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: underline; 
+    text-decoration-color: #8400ff; /* Ou use var(--color-primary) */
+}
+
+a {
+  text-decoration: none;
+}

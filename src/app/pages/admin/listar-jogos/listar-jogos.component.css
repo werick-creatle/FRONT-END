@@ -1,0 +1,279 @@
+/* ----------------------------------------------------- */
+/*  CONTAINER PRINCIPAL                                  */
+/* ----------------------------------------------------- */
+.list-container {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 30px;
+  background-color: black; 
+  border-radius: 15px;
+  color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ----------------------------------------------------- */
+/*  TÍTULO + BOTÃO NOVO                                  */
+/* ----------------------------------------------------- */
+.header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(132, 0, 255, 0.25);
+}
+
+h2 {
+  color: white; 
+  font-weight: bold;
+  font-size: 1.8rem;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+/* Botão “Novo Jogo” — estilo igual ao carrinho */
+.btn-new {
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+
+  background-color: rgb(8, 8, 8); 
+  color: white;
+
+  border-radius: 10px;
+  border: 1px solid rgba(132, 0, 255, 0.45);
+  cursor: pointer;
+
+  box-shadow:
+    0 0 6px rgba(132, 0, 255, 0.28),
+    0 0 12px rgba(132, 0, 255, 0.18);
+
+  transition: 0.25s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.btn-new:hover {
+  background: #7a00ff;
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 10px rgba(132, 0, 255, 0.45),
+    0 0 20px rgba(132, 0, 255, 0.30);
+}
+
+/* ----------------------------------------------------- */
+/*  TABELA – ESTILO NEON IGUAL AO DO SEGUNDO CSS         */
+/* ----------------------------------------------------- */
+.table-wrapper {
+  background-color: black; 
+  border-radius: 12px;
+  overflow: hidden;
+
+  border: 1px solid rgba(132, 0, 255, 0.25);
+  box-shadow:
+    0 0 6px rgba(132, 0, 255, 0.28),
+    0 0 12px rgba(132, 0, 255, 0.18);
+}
+
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  color: white;
+}
+
+/* Cabeçalho */
+.custom-table thead tr {
+  background-color: black; 
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+}
+
+.custom-table th {
+  padding: 15px;
+  color: var(--color-primary);
+  border-bottom: 1px solid rgba(132, 0, 255, 0.25);
+}
+
+/* Linhas */
+.custom-table td {
+  padding: 15px;
+  background-color: black; 
+  border-bottom: 1px solid rgba(132, 0, 255, 0.15);
+  vertical-align: middle;
+  color: #ddd;
+}
+
+/* Hover neon */
+.custom-table tbody tr:hover td {
+  background-color: rgb(8, 8, 8); 
+  
+}
+
+
+/* ----------------------------------------------------- */
+/* NOVO BLOCO: ALINHAMENTO FINO E LARGURA DAS COLUNAS */
+/* ----------------------------------------------------- */
+
+/* ID (1ª coluna) e Capa (2ª coluna) - Centralizado e fixo */
+.custom-table th:nth-child(1),
+.custom-table td:nth-child(1),
+.custom-table th:nth-child(2),
+.custom-table td:nth-child(2) {
+  text-align: center;
+  width: 80px; /* Largura fixa para ID e Capa */
+}
+
+/* Nome (3ª coluna) - Alinhado à ESQUERDA e com largura para dar espaço */
+.custom-table th:nth-child(2),
+.custom-table td:nth-child(2) {
+  text-align: center; 
+}
+
+/* Nome (3ª coluna) - Alinhado à ESQUERDA e com largura para dar espaço */
+.custom-table th:nth-child(3),
+.custom-table td:nth-child(3) {
+
+  text-align: center; 
+}
+
+/* Preço (4ª coluna) - Alinhado à Direita */
+.custom-table th:nth-child(4),
+.custom-table td:nth-child(4) {
+  text-align: center;
+}
+
+/* Estoque (5ª coluna) - Alinhado à Direita */
+.custom-table th:nth-child(5),
+.custom-table td:nth-child(5) {
+  text-align: center;
+}
+
+/* Ações (6ª coluna) - Centralizado */
+.custom-table th:nth-child(6),
+.custom-table td:nth-child(6) {
+  text-align: center;
+}
+
+
+/* ----------------------------------------------------- */
+/*  IMG THUMB                                            */
+/* ----------------------------------------------------- */
+/* OBS: Ajustei o seletor para pegar a tag img diretamente, pois não vi a classe .thumb-img no HTML, mas vi img */
+.custom-table td img {
+  width: 50px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid rgba(132, 0, 255, 0.35);
+  box-shadow:
+    0 0 5px rgba(132, 0, 255, 0.28),
+    0 0 10px rgba(132, 0, 255, 0.18);
+}
+
+
+/* ----------------------------------------------------- */
+/*  BADGE PLATAFORMA                                     */
+/* ----------------------------------------------------- */
+.badge-plataforma {
+  background: #181818;
+  color: var(--color-primary);
+  padding: 6px 12px;
+  border-radius: 25px;
+  font-size: 1rem;
+
+  border: 1px solid rgba(132, 0, 255, 0.35);
+}
+
+/* ----------------------------------------------------- */
+/*  ESTOQUE BAIXO                                        */
+/* ----------------------------------------------------- */
+.low-stock {
+  color: #ff5252;
+  background: rgba(255, 0, 0, 0.15);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+/* ----------------------------------------------------- */
+/*  AÇÕES (EDITAR / EXCLUIR)                             */
+/* ----------------------------------------------------- */
+.actions-cell {
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  gap: 12px;
+}
+
+
+
+.btn-action {
+  /* Configurações de tamanho fixo para ambos os botões */
+  width: 32px; /* Largura fixa, ajuste se necessário */
+  height: 32px; /* Altura fixa, ajuste se necessário */
+  padding: 0; /* Remove o padding para que width/height sejam respeitados */
+
+  /* Centralização do conteúdo (o emoji) */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Estilos visuais mantidos */
+  background: transparent;
+  border: 1px solid rgba(132, 0, 255, 0.30);
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.25s ease;
+  text-decoration: none;
+  /* Ajuste no tamanho do emoji, se necessário */
+  font-size: 1.2rem; 
+}
+
+
+
+.btn-action:hover {
+  background: #7a00ff;
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 10px rgba(132, 0, 255, 0.45),
+    0 0 20px rgba(132, 0, 255, 0.30);
+}
+
+.edit {
+  color: #7aa7ff;
+}
+
+.delete {
+  color: #ff4c4c;
+}
+
+/* ----------------------------------------------------- */
+/*  EMPTY STATE                                          */
+/* ----------------------------------------------------- */
+.empty-state {
+  padding: 60px;
+  text-align: center;
+  color: #777;
+  font-style: italic;
+}
+
+/* ----------------------------------------------------- */
+/*  RESPONSIVIDADE                                       */
+/* ----------------------------------------------------- */
+@media (max-width: 768px) {
+  .table-wrapper {
+    overflow-x: auto;
+  }
+
+  .header-flex {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+}
+

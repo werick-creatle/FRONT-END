@@ -1,0 +1,71 @@
+/* Variáveis de cor (Ajuste para seu tema) */
+:root {
+  --cor-destaque: #8a2be2; /* Roxo */
+}
+
+/* Container que define o espaço visível */
+.carousel-container {
+  overflow: hidden; /* CRUCIAL */
+  position: relative;
+  width: 100%; 
+  max-width: 1200px;
+  height: 450px; /* Altura definida para aparecer! */
+  margin: 0 auto 30px auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* O trilho que carrega todos os slides */
+.carousel-track {
+  display: flex; /* CRUCIAL */
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
+  height: 100%; 
+}
+
+/* O slide individual */
+.carousel-slide {
+  flex-shrink: 0; /* Impede o encolhimento */
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  /* Estilos do conteúdo */
+  display: flex;
+  align-items: center; 
+  padding: 50px;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+
+/* --- ESTILOS DE BACKGROUND (Corrigir o caminho das imagens!) --- */
+
+/* **ATENÇÃO**: Mova suas imagens (slide1.jpg, slide2.jpg, etc.) para src/assets/carrossel/ */
+.slide-1 { 
+    background-image: url('/SilentHill.jpg'); 
+    background-color: #121212;
+}
+
+.slide-2 { 
+    background-image: url('/black.jpeg'); 
+    background-color: #121212;
+}
+
+.slide-3 { 
+    background-image: url('/fc26.jpg');  
+    background-color: #121212;
+    
+}
+
+.slide-4 { 
+    background-image: url('/wolv.jpg'); 
+    background-color: #121212;
+}
+
+.slide-5 { 
+    background-image: url('/Metal.png'); 
+    background-color: #121212;
+    
+}
+

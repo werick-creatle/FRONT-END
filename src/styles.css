@@ -1,0 +1,49 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/* --- Reset Básico e Estilos Globais --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Paleta de Cores */
+  --color-primary: #8a2be2;
+  /* Roxo/Azul Destaque */
+  --color-background: #121212;
+  /* Fundo mais escuro */
+  --color-surface: #1e1e1e;
+  /* Elementos (cards, header) */
+  --color-text-light: #f0f0f0;
+  --color-text-muted: #aaaaaa;
+  --color-success: #00cc00;
+  /* Verde vibrante para preço */
+  --color-divider: #3d3d3d;
+}
+
+/* Correção para evitar barra de rolagem horizontal desnecessária */
+html,
+body {
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-text-light);
+  line-height: 1.6;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: url('/16.png') no-repeat center center fixed;
+  background-size: cover;
+}

@@ -1,0 +1,23 @@
+<nav class="main-nav" [class.main-nav-open]="menuAberto">
+    <div class="container">
+
+        <button class="menu-btn" (click)="alterarMenu()">
+            <span class="hamburger-icon">☰</span>
+        </button>
+
+        <div class="menu-overlay" 
+             *ngIf="menuAberto" 
+             (click)="fecharMenu()">
+        </div>
+
+        <ul [class.active]="menuAberto">
+            
+            <li><a routerLink="/lancamentos" routerLinkActive="active" (click)="fecharMenu()">LANÇAMENTOS</a></li>
+            <li><a routerLink="/catalogo" routerLinkActive="active" (click)="fecharMenu()">CATÁLOGO</a></li>
+            <li><a routerLink="/pc" routerLinkActive="active" (click)="fecharMenu()">COMPUTADOR</a></li>
+            <li><a routerLink="/playstation" routerLinkActive="active" (click)="fecharMenu()">PLAYSTATION</a></li>
+            <li><a routerLink="/xbox" routerLinkActive="active" (click)="fecharMenu()">XBOX</a></li>
+        </ul>
+        
+    </div>
+</nav>

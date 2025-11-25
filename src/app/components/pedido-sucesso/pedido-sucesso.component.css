@@ -1,0 +1,187 @@
+/* CONTAINER GERAL */
+.container-recibo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 85vh;
+  background-color: black; /* Fundo dark igual ao carrinho */
+  padding: 20px;
+}
+
+/* CARD PRINCIPAL */
+.card-recibo {
+  background-color: black;  /* cinza escuro igual ao card dos jogos */
+  color: #fff;
+  width: 100%;
+  max-width: 550px;
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(123, 31, 255, 0.2); /* roxo leve igual ao tema */
+  position: relative;
+  border-top: 4px solid #00c853; /* verde neon idêntico ao "sucesso" do carrinho */
+  text-align: center;
+}
+
+/* ÍCONE DE SUCESSO */
+.icone-sucesso {
+  width: 70px;
+  height: 70px;
+  background-color: rgba(0, 200, 83, 0.12); /* verde neon leve */
+  color: #00e676; /* verde neon forte */
+  border-radius: 50%;
+  font-size: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+/* TÍTULOS */
+.recibo-header h2 {
+  margin: 0;
+  font-size: 1.9rem;
+  color: #fff;
+}
+
+.recibo-header p {
+  margin-top: 5px;
+  color: #bbb;
+}
+
+/* DETALHES DO PEDIDO */
+.recibo-detalhes {
+  background-color: black; 
+  border-radius: 10px;
+  padding: 15px 20px;
+  margin: 25px 0;
+  border: 1px solid #333;
+}
+
+.linha-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+  color: #ccc;
+}
+
+.linha-info strong {
+  color: #aaa;
+}
+
+.linha-info span:last-child {
+  font-weight: 600;
+  color: #fff;
+}
+
+/* LINHA DIVISÓRIA */
+hr {
+  border: none;
+  border-top: 1px solid #333;
+  margin: 25px 0;
+}
+
+/* TÍTULO ITENS */
+h3 {
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  color: #999;
+  margin-bottom: 15px;
+}
+
+/* TABELA DOS JOGOS */
+.tabela-itens {
+  width: 100%;
+  border-collapse: collapse;
+  color: #ddd;
+}
+
+.tabela-itens th {
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  color: #777;
+  font-weight: 700;
+  border-bottom: 2px solid #333;
+  padding-bottom: 10px;
+}
+
+.tabela-itens td {
+  padding: 14px 0;
+  border-bottom: 1px solid #333;
+}
+
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+/* TOTAL */
+.recibo-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 25px;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.valor-total {
+  color: #fff; /* verde neon */
+}
+
+/* BOTÃO VOLTAR */
+.btn-voltar {
+  margin-top: 30px;
+  background-color: rgb(8, 8, 8); 
+  color: white;
+  border: 1px solid rgba(132, 0, 255, 0.45); /* borda neon suave */
+  padding: 15px;
+  border-radius: 10px;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s ease;
+
+  /* brilho leve ao redor */
+  box-shadow:
+      0 0 6px rgba(132, 0, 255, 0.28),
+      0 0 12px rgba(132, 0, 255, 0.18);
+}
+
+.btn-voltar:hover {
+  background-color: #7a00ff;
+  transform: translateY(-2px);
+
+  /* brilho mais forte no hover */
+  box-shadow:
+      0 0 10px rgba(132, 0, 255, 0.45),
+      0 0 20px rgba(132, 0, 255, 0.30);
+}
+
+
+/* ANIMAÇÃO */
+.animate-fade-in {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* LOADING */
+.loading {
+  font-size: 1.2rem;
+  color: #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}

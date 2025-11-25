@@ -1,0 +1,191 @@
+/*
+   IMPORTANTE: Certifique-se de que estas variáveis CSS estejam definidas no seu arquivo HTML ou no topo do seu CSS (ex: no :root).
+   :root {
+     --color-primary: #6200ea; 
+     --color-text-light: #e0e0e0; 
+   }
+*/
+
+/* ============================================================
+   1. ESTILO GERAL (COMPUTADOR / TELA GRANDE)
+   ============================================================ */
+.main-nav {
+  background-color: rgb(8, 8, 8); 
+  padding: 15px 0; 
+  border-bottom: 2px solid var(--color-primary, #6200ea);
+  position: relative;
+  z-index: 1000;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  
+  display: flex;
+  align-items: center;
+  /* ❗ CORREÇÃO DE ALINHAMENTO: Alinha os itens à esquerda no Desktop */
+  justify-content: flex-start; 
+}
+
+/* LOGO (Opcional) */
+.logo {
+  display: none; 
+  font-weight: bold;
+  color: var(--color-primary, #6200ea);
+  margin-right: auto;
+}
+
+/* BOTÃO HAMBÚRGUER (Escondido no PC) */
+.menu-btn {
+  display: none; 
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 1000; 
+  padding: 5px; 
+}
+
+/* A LISTA DE LINKS (Desktop) */
+.main-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 115px; 
+  align-items: center;
+}
+
+.main-nav ul li a {
+  color: var(--color-text-light, #e0e0e0);
+  text-decoration: none;
+  font-weight: 600; 
+  font-size: 1rem; 
+  letter-spacing: 0.5px; 
+  text-transform: uppercase;
+  transition: all 0.3s; 
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 4px;
+}
+
+/* ESTILO DE HOVER e ACTIVE (Desktop) */
+.main-nav ul li a:hover,
+.main-nav ul li a.active {
+  color: var(--color-primary, #6200ea);
+  background-color: #333; /* Fundo escuro sutil */
+}
+
+/* ============================================================
+   2. ESTILO RESPONSIVO (CELULAR) - FINAL CORRIGIDO
+   ============================================================ */
+@media (max-width: 768px) {
+    
+    .main-nav {
+        padding: 15px 0;
+    }
+
+    /* 1. Mostra o botão e posiciona */
+    .menu-btn {
+        display: block;
+        position: absolute; 
+        left: 20px;
+    }
+
+    .container {
+        /* Garante que o conteúdo (logo, botão) esteja à esquerda em mobile */
+        justify-content: flex-start; 
+    }
+    
+    /* Regra para esconder o botão ao abrir o menu (requer JS) */
+    .main-nav-open .menu-btn {
+        opacity: 0;
+        pointer-events: none; 
+        transition: opacity 0.3s;
+    }
+
+    /* 2. O FUNDO ESCURO (OVERLAY) */
+    .menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 998; 
+        
+        opacity: 0;
+        pointer-events: none; 
+        transition: opacity 0.3s ease-out;
+    }
+
+    .menu-overlay.active {
+        opacity: 1;
+        pointer-events: auto; 
+    }
+
+    /* 3. O MENU GAVETA - Estilo Lateral */
+    .main-nav ul {
+        display: none; 
+        position: fixed; 
+        top: 0;          
+        left: 0;
+        
+        width: 80%; 
+        max-width: 350px; 
+        height: 100vh; 
+        
+        flex-direction: column; 
+        background-color: #1a1a1a; 
+        box-shadow: 5px 0 15px rgba(0,0,0,0.7); 
+        
+        padding: 10px 0;
+        gap: 0; 
+        z-index: 1005; 
+        
+        transition: transform 0.3s ease-out;
+        transform: translateX(-100%); 
+    }
+
+    /* 4. Aparece quando active - Desliza para dentro */
+    .main-nav ul.active {
+        display: flex;
+        transform: translateX(0); 
+    }
+
+    /* 5. Estilo dos Links em Mobile */
+    .main-nav ul li {
+        width: 100%;
+        text-align: left; 
+    }
+
+    .main-nav ul li a {
+        display: block; 
+        padding: 18px 25px; 
+        border-radius: 0; 
+        background-color: transparent; 
+        
+        color: var(--color-text-light, #e0e0e0);
+        font-weight: 700; 
+        font-size: 1rem; 
+        letter-spacing: 0.8px; 
+        text-transform: uppercase;
+        
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08); 
+        transition: background-color 0.2s ease, color 0.2s ease;
+    }
+    
+    /* Estilo de hover/active em mobile */
+    .main-nav ul li a:hover,
+    .main-nav ul li a.active {
+        background-color: rgba(255, 255, 255, 0.08); 
+        color: var(--color-primary, #6200ea); 
+    }
+    
+    /* Remove a borda inferior do último item em mobile */
+    .main-nav ul li:last-child a {
+        border-bottom: none;
+    }
+}

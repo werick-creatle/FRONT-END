@@ -1,0 +1,143 @@
+:root {
+    --color-primary: #9400d3; 
+    --color-surface: #1e1e1e; 
+    --color-text-light: #f5f5f5;
+    --color-success: #4CAF50; 
+    --color-text-muted: #aaa;
+}
+
+/* CENTRALIZAÇÃO */
+:host {
+    display: flex;
+    justify-content: center; 
+    align-items: center;    
+    min-height: 100vh;     
+    background-color: #000000; 
+    width: 100%;
+    font-family: Arial, sans-serif;
+    color: var(--color-text-light);
+}
+
+/* CONTAINER COM BORDA E NEON ROXO (igual cadastro) */
+.login-container {
+    background-color: black; 
+    padding: 2rem;
+    border-radius: 12px;
+
+    border: 1px solid rgba(132, 0, 255, 0.3);
+    box-shadow:
+        0 0 6px rgba(132, 0, 255, 0.25),
+        0 0 12px rgba(132, 0, 255, 0.18);
+
+    width: 350px;
+    text-align: center;
+}
+
+/* TÍTULO */
+.login-container h2 {
+    font-size: 2em;
+    font-weight: 700;
+    margin-bottom: 30px;
+    border-left: 5px solid var(--color-primary);
+    padding-left: 15px;
+    color: var(--color-text-light);
+    text-align: left;
+}
+
+/* FORM */
+.form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--color-text-light);
+    font-weight: 600;
+}
+
+/* INPUTS */
+.form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgb(8, 8, 8); 
+    color: var(--color-text-light);
+    border-radius: 5px;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 1px var(--color-primary);
+    outline: none;
+}
+
+/* BOTÃO LOGIN (igual botão cadastrar) */
+.login-button {
+    width: 100%;
+    padding: 12px 22px;
+    font-size: 1.2rem;
+    background-color: rgb(8, 8, 8); 
+    border: 1px solid var(--color-primary);
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    margin-top: 1.5rem;
+    transition: 0.3s ease;
+}
+
+.login-button:hover {
+    background-color: #7a00ff;
+    transform: translateY(-2px);
+    box-shadow:
+        0 0 10px rgba(132, 0, 255, 0.45),
+        0 0 20px rgba(132, 0, 255, 0.30);
+}
+
+/* ÍCONE SUPERIOR */
+.icon-header {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.icon-header i {
+    font-size: 3rem;
+    color: var(--color-primary);
+}
+
+.icon-header img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+/* FRASE "Não tem conta? Cadastre-se" */
+.login-link-message {
+    margin-top: 1.5rem;
+    font-size: 0.9em;
+    color: var(--color-text-muted);
+}
+
+/* LINK CADASTRE-SE — corrigido para ser ROXO SEM FICAR VERMELHO */
+.login-link-message a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.login-link-message a:hover {
+    color: #a842f4;
+    text-decoration: underline;
+}
+
+
+/* Impede o link ficar vermelho ao clicar */
+.login-link-message a:active,
+.login-link-message a:focus,
+.login-link-message a:visited {
+    color: var(--color-primary) !important;
+}

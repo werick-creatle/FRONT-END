@@ -1,0 +1,166 @@
+/* ----------------------------------------------------- */
+/* VARIÁVEIS CSS (Você pode mover isso para seu styles.css global ou `:root`) */
+/* ----------------------------------------------------- */
+:root {
+    --color-primary: #8a2be2; /* ROXO PRINCIPAL (Para Destaques) */
+    --color-card-bg: #1e1e1e; /* Fundo escuro do card */
+    --color-background: #0d0d0d; /* Fundo da página */
+}
+
+/* ----------------------------------------------------- */
+/* ESTILOS DE BASE (Se não estiverem em styles.css global) */
+/* ----------------------------------------------------- */
+.dashboard-page {
+    /* Container principal - ajuste conforme o layout do seu aplicativo */
+    padding: 20px;
+}
+
+body {
+    /* Geralmente aplicado no styles.css global no Angular */
+    background-color: var(--color-background);
+    color: #e0e0e0;
+    font-family: Arial, sans-serif;
+}
+
+
+/* ----------------------------------------------------- */
+/* ESTILO DO HEADER (ADMIN/PANEL) 🎮 */
+/* ----------------------------------------------------- */
+.sidebar-header {
+    margin-bottom: 2rem;
+    padding: 10px 0;
+}
+
+.admin-text {
+    /* Fundo da palavra "Admin" ficará branco */
+    background-color: white; 
+    /* Cor do texto para contraste */
+    color: black;            
+    padding: 2px 5px;        
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+.panel-text {
+    /* Fundo da palavra "Panel" ficará roxo */
+    background-color: var(--color-primary); 
+    /* Cor do texto para contraste */
+    color: white;             
+    padding: 2px 5px;         
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+/* ----------------------------------------------------- */
+/* ESTILOS DE TÍTULOS E LAYOUTS */
+/* ----------------------------------------------------- */
+h2 {
+    color: white;
+    border-bottom: 2px solid var(--color-primary);
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+}
+
+.dashboard-card h3 {
+    margin-top: 0;
+    font-size: 1.0rem; /* REDUZIDO de 1.1rem para 1.0rem */
+    color: var(--color-secondary); 
+}
+
+/* ----------------------------------------------------- */
+/* LAYOUT DE INSTRUÇÕES */
+/* ----------------------------------------------------- */
+.instruction-block {
+    margin-bottom: 20px; /* Redução sutil de margem */
+}
+
+.instruction-block .dashboard-card {
+    width: 100%; 
+}
+
+/* Estilo do Card (NEON ROXO) - PADDING REDUZIDO */
+/* ----------------------------------------------------- */
+.dashboard-card {
+    background-color: var(--color-card-bg); 
+    padding: 15px; /* REDUZIDO de 20px para 15px */
+    border-radius: 15px;
+
+    /* Borda + neon roxo */
+    border: 1px solid rgba(132, 0, 255, 0.35);
+
+    box-shadow:
+        0 0 6px rgba(132, 0, 255, 0.25),
+        0 0 14px rgba(132, 0, 255, 0.18);
+
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-2px); /* Redução sutil do efeito hover */
+
+    box-shadow:
+        0 0 10px rgba(132, 0, 255, 0.45),
+        0 0 22px rgba(132, 0, 255, 0.35);
+}
+
+/* Destaque primário (Roxo) */
+.primary-highlight {
+    border: 1px solid var(--color-primary); 
+}
+
+/* Card de vendas/implementações */
+.sales-card {
+    background-color: var(--color-primary);
+    color: #fff;
+    /* Garantir padding compacto */
+    padding: 15px;
+}
+
+.sales-card h3 {
+    color: #fff; 
+}
+
+
+/* ----------------------------------------------------- */
+/* ESTILO DAS LISTAS */
+/* ----------------------------------------------------- */
+
+/* Estilo da Lista de Instruções Principal */
+.instruction-list {
+    list-style-type: '👉 '; 
+    padding-left: 20px;
+    margin-top: 10px; /* Redução de margem superior */
+    font-size: 0.95rem; /* Fonte ligeiramente menor */
+}
+
+.instruction-list li {
+    margin-bottom: 6px; /* Redução de espaçamento entre itens */
+    color: #c8c8c8;
+}
+
+/* Estilo da Lista de Destaques (Reutilizada para subtópicos) */
+.highlight-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0 0 5px; /* Redução de margem e indentação */
+}
+
+.highlight-list li {
+    padding: 8px 0; /* REDUZIDO de 10px para 8px */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 0.95rem; /* Fonte ligeiramente menor */
+}
+
+.highlight-list li:last-child {
+    border-bottom: none;
+}
+
+/* ----------------------------------------------------- */
+/* ESTILO PARA DESTAQUES EM NEGRITO (ROXO) 💜 */
+/* ----------------------------------------------------- */
+.highlight-list li strong, /* Seleciona o <strong> dentro dos itens de lista de destaque */
+.dashboard-card p strong {    /* Adiciona estilo para <strong> dentro de parágrafos em cards */
+    color: var(--color-primary);
+    font-weight: 700; 
+}

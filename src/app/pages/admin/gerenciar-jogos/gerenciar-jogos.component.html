@@ -1,0 +1,55 @@
+<div class="list-container">
+  <div class="header-flex">
+    <h2>📂 Gerenciar Jogos</h2>
+    <a routerLink="/admin/cadastrar-jogos" class="btn-new">
+      <i class="fas fa-plus"></i> Novo Jogo
+    </a>
+  </div>
+
+  <div class="table-wrapper">
+    <table class="custom-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Capa</th>
+          <th>Nome</th>
+          <th>Plataforma</th>
+          <th>Preço</th>
+          <th>Estoque</th>
+          <th class="text-center">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let jogo of jogos">
+          <td>#{{ jogo.id }}</td>
+          <td>
+            <img [src]="jogo.urlImagemCapa" alt="Capa" class="thumb-img">
+          </td>
+          <td class="fw-bold">{{ jogo.nome }}</td>
+          <td>
+            <span class="badge-plataforma">{{ jogo.plataforma }}</span>
+          </td>
+          <td>{{ jogo.preco | currency:'BRL' }}</td>
+          <td>
+            <span [class.low-stock]="jogo.quantidadeEstoque < 5">
+              {{ jogo.quantidadeEstoque }} unid.
+            </span>
+          </td>
+          <td class="text-center actions-cell">
+            <a [routerLink]="['/admin/editar-jogo', jogo.id]" class="btn-action edit" title="Editar">
+              ✏️
+            </a>
+            
+            <button (click)="deletarJogo(jogo.id)" class="btn-action delete" title="Excluir">
+              🗑️
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div *ngIf="jogos.length === 0" class="empty-state">
+      <p>Nenhum jogo encontrado no sistema.</p>
+    </div>
+  </div>
+</div>

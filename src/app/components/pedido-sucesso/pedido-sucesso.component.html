@@ -1,0 +1,63 @@
+<div class="container-recibo">
+  
+  <div *ngIf="!pedido" class="loading">
+    <p>Buscando detalhes do pedido...</p>
+  </div>
+
+  <div *ngIf="pedido" class="card-recibo animate-fade-in">
+    
+    <div class="recibo-header">
+      <div class="icone-sucesso">✔</div>
+      <h2>Compra Realizada!</h2>
+      <p>Obrigado pela preferência.</p>
+    </div>
+
+    <div class="recibo-detalhes">
+      <div class="linha-info">
+        <strong>Número do Pedido: </strong>
+        <span>#{{ pedido.pedidoId }}</span>
+      </div>
+      <div class="linha-info">
+        <strong>Data da Compra:</strong>
+        <span>{{ pedido.dataDoPedido | date:'dd/MM/yyyy' }}</span>
+      </div>
+    </div>
+
+    <hr>
+
+    <h3>Itens Adquiridos</h3>
+    
+    <table class="tabela-itens">
+      <thead>
+        <tr>
+          <th class="text-left">Jogo</th>
+          <th class="text-center">Qtd</th>
+          <th class="text-right">Preço</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of pedido.itens">
+          <td class="text-left">{{ item.nomeJogo }}</td> 
+          <td class="text-center">{{ item.quantidade }}</td>
+          <td class="text-right">{{ item.precoUnitario | currency:'BRL' }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr>
+
+    <div class="recibo-total">
+      <span>TOTAL PAGO: </span>
+      <span class="valor-total">{{ pedido.valorTotal | currency:'BRL' }}</span>
+    </div>
+
+    <a routerLink="/lancamentos">
+    <div class="actions">
+      <button (click)="voltarLoja()" class="btn-voltar" >
+        Voltar para a Loja
+      </button>
+    </div>
+  </a>
+
+  </div>
+</div>

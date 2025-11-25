@@ -1,0 +1,130 @@
+/* CONTAINER CENTRAL */
+.remove-games-content-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+
+    background-color: rgb(8, 8, 8); ;
+    border-radius: 15px;
+
+    border: 1px solid rgba(132, 0, 255, 0.35);
+    box-shadow:
+        0 0 6px rgba(132, 0, 255, 0.25),
+        0 0 12px rgba(132, 0, 255, 0.18);
+}
+
+/* TÍTULO */
+.page-title {
+    text-align: center;
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 25px;
+    font-weight: bold;
+}
+
+/* BUSCA */
+.search-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.search-box input {
+    flex: 1;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(132, 0, 255, 0.35);
+
+    background: #111;
+    color: white;
+}
+
+.search-box input::placeholder {
+    color: #999;
+}
+
+.btn-primary-search {
+    padding: 12px 20px;
+    border-radius: 10px;
+
+    background-color: rgb(8, 8, 8); 
+    border: 1px solid rgba(132, 0, 255, 0.45);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+
+    box-shadow:
+        0 0 6px rgba(132, 0, 255, 0.28),
+        0 0 12px rgba(132, 0, 255, 0.18);
+
+    transition: 0.25s ease;
+}
+
+.btn-primary-search:hover {
+    background: #7a00ff;
+    transform: translateY(-2px);
+    box-shadow:
+        0 0 10px rgba(132, 0, 255, 0.45),
+        0 0 20px rgba(132, 0, 255, 0.30);
+}
+
+/* TABELA DE JOGOS */
+.game-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    color: white;
+    text-align: left;
+}
+
+.game-table thead tr {
+    background-color: rgb(8, 8, 8); ;
+}
+
+.game-table th,
+.game-table td {
+    padding: 12px;
+}
+
+.game-table tbody tr {
+    background-color: rgb(8, 8, 8); ;
+
+    border-bottom: 1px solid rgba(132, 0, 255, 0.25);
+    transition: 0.2s ease;
+}
+
+.game-table tbody tr:hover {
+    background: #1d1d1d;
+}
+
+.game-table img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 10px;
+
+    border: 1px solid rgba(132, 0, 255, 0.35);
+    box-shadow:
+        0 0 4px rgba(132, 0, 255, 0.25),
+        0 0 10px rgba(132, 0, 255, 0.18);
+}
+
+/* BOTÃO REMOVER */
+.btn-remove {
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+
+    background: transparent;
+    color: rgb(255, 40, 40);
+    font-weight: bold;
+
+    transition: 0.2s ease;
+}
+
+.btn-remove:hover {
+    color: rgb(255, 80, 80);
+    transform: translateY(-2px);
+    text-shadow: 0 0 6px rgb(255, 60, 60);
+}

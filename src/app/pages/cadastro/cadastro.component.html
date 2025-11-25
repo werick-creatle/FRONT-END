@@ -1,0 +1,77 @@
+<div class="login-container">
+
+    <div class="icon-header">
+        <img src="/Perfiel.png" alt="Ícone de Perfil"> 
+        <h2>Criar Conta</h2>
+    </div>
+
+    <div *ngIf="mensagemErro" class="alert alert-danger" style="color: red; text-align: center; margin-bottom: 15px;">
+        {{ mensagemErro }}
+    </div>
+
+    <form (ngSubmit)="enviarFormulario()" #form="ngForm">
+
+        <div class="form-group">
+            <label for="nome">Nome Completo:</label>
+            <input type="text" 
+                   id="nome" 
+                   name="nomeCompleto" 
+                   required 
+                   placeholder="Digite seu nome"
+                   [(ngModel)]="dados.nomeCompleto">
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" 
+                   id="email" 
+                   name="login" 
+                   required 
+                   email
+                   placeholder="Digite seu email"
+                   [(ngModel)]="dados.login">
+        </div>
+
+        <div class="form-group">
+            <label for="password">Senha:</label>
+            <input type="password" 
+                   id="password" 
+                   name="senha" 
+                   required 
+                   minlength="6"
+                   placeholder="Digite sua senha"
+                   [(ngModel)]="dados.senha">
+        </div>
+
+        <div class="form-group">
+            <label for="confirm-password">Confirmar Senha:</label>
+            <input type="password" 
+                   id="confirm-password" 
+                   name="confirmSenha" 
+                   ngModel
+                   required
+                   placeholder="Confirme sua senha">
+        </div>
+
+        <div class="form-group">
+            <label for="data-nascimento">Data de Nascimento:</label>
+            <input type="date" 
+                   id="data-nascimento" 
+                   name="dataNascimento" 
+                   required 
+                   placeholder="Data-nascimento"
+                   [(ngModel)]="dados.dataNascimento">
+        </div>
+
+        <button type="submit" class="login-button" [disabled]="form.invalid">
+            Cadastrar
+        </button>
+
+    </form>
+
+    <p class="login-link-message">
+        Já possui uma conta?
+        <a routerLink="/login">Faça Login</a>
+    </p>
+
+</div>
